@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminService} from '../admin.service'
 
 @Component({
   selector: 'app-departments',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartmentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adminservice:AdminService) { }
 
   ngOnInit() {
+    return this.adminservice.getDepartment().subscribe((result)=>{
+      console.log(result)
+    })
   }
 
 }

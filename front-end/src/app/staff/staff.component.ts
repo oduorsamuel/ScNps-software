@@ -8,11 +8,28 @@ import {Router} from '@angular/router'
 })
 export class StaffComponent {
   json = {
-    "title": "School Of Computing Net Promoter Score",
+    // "title": "School Of Computing Net Promoter Score",
     "pages": [
      {
       "name": "page1",
       "elements": [
+        {
+          "type": "barrating",
+          isRequired: true,
+          "name": "Before Initiating this survey to students please rate the School",
+          "choices": [
+           1,
+           2,
+           3,
+           4,
+           5,
+           6,
+           7,
+           8,
+           9,
+           10,
+          ]
+         },
        {
         "type": "dropdown",
         "name": "department",

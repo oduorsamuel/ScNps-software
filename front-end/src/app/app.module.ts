@@ -22,6 +22,7 @@ import { AcademicyearsComponent } from './admin/academicyears/academicyears.comp
 import { ProgramsComponent } from './admin/programs/programs.component';
 import { LoginComponent } from './admin/login/login.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+import { SurveynavComponent } from './surveynav/surveynav.component';
  const routes: Routes=[
   {path:'staff', component:StaffComponent},
   {path:'login', component:LoginComponent},
@@ -47,7 +48,8 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
     AcademicyearsComponent,
     ProgramsComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    SurveynavComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent{
   json = {
-    "title": "School of Computing Net Promoter Score",
+    // "title": "School of Computing Net Promoter Score",
     "pages": [
      {
       "name": "page1",

@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 import * as Survey from 'survey-angular';
 import * as widgets from 'surveyjs-widgets';
 
@@ -20,10 +21,13 @@ widgets.prettycheckbox(Survey);
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'student',
+  selector: 'init',
   template: `<div class='survey-container contentcontainer codecontainer'><div id='surveyElement'></div></div>`
 })
-export class StudentComponent implements OnInit {
+export class StaffresponseComponent implements OnInit {
+  constructor(private router:Router){
+
+  }
   @Output() submitSurvey = new EventEmitter<any>();
 
   @Input()
@@ -32,33 +36,18 @@ export class StudentComponent implements OnInit {
 
   click(result) {
     console.log(result);
+    this.router.navigate(['/student']);
 
   }
 
   ngOnInit() {
     const surveyModel = new Survey.Model(this.json);
-    surveyModel.onAfterRenderQuestion.add((survey, options) => {
-      if (!options.question.popupdescription) { return; }
-
-      // Add a button;
-      const btn = document.createElement('button');
-      btn.className = 'btn btn-info btn-xs';
-      btn.innerHTML = 'More Info';
-      const question = options.question;
-      btn.onclick = function () {
-        // showDescription(question);
-        alert(options.question.popupdescription);
-      };
-      const header = options.htmlElement.querySelector('h5');
-      const span = document.createElement('span');
-      span.innerHTML = '  ';
-      header.appendChild(span);
-      header.appendChild(btn);
-    });
     surveyModel.onComplete
       .add(result =>
-        this.submitSurvey.emit(result.data)
+        this.router.navigate(['/student'])
+        // this.submitSurvey.emit(result.data)
       );
     Survey.SurveyNG.render('surveyElement', { model: surveyModel });
+
   }
 }

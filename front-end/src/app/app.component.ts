@@ -15,39 +15,24 @@ export class AppComponent {
       "elements": [
        {
         "type": "barrating",
-        "name": "barrating",
+        "name": "Rate how much this unit is beneficial to your future career",
         "choices": [
          1,
          2,
          3,
          4,
          5,
-         {
-          "value": "item1",
-          "text": "6"
-         },
-         {
-          "value": "item2",
-          "text": "7"
-         },
-         {
-          "value": "item3",
-          "text": "8"
-         },
-         {
-          "value": "item4",
-          "text": "9"
-         },
-         {
-          "value": "item5",
-          "text": "10"
-         }
+         6,
+         7,
+         8,
+         9,
+         10,
         ]
        },
        {
         "type": "dropdown",
         "name": "countries",
-        "title": "Please select the country you have arrived from:",
+        "title": "Question not Availlable",
         "choicesByUrl": {
          "url": "https://restcountries.eu/rest/v1/all"
         },
@@ -87,19 +72,19 @@ export class AppComponent {
         "rows": [
          {
           "value": "affordable",
-          "text": "Product is affordable"
+          "text": "The course outline was adhered to"
          },
          {
-          "value": "does what it claims",
-          "text": "Product does what it claims"
+          "value": "Attendance",
+          "text": "All sheduled classes were administered for this particular unit"
          },
          {
           "value": "better then others",
-          "text": "Product is better than other products on the market"
+          "text": "Question not Availlable"
          },
          {
           "value": "easy to use",
-          "text": "Product is easy to use"
+          "text": "Question not Available"
          }
         ]
        }
@@ -111,11 +96,11 @@ export class AppComponent {
        {
         "type": "radiogroup",
         "name": "price to competitors",
-        "title": "Compared to our competitors, do you feel the Product is",
+        "title": "Compared to other Units, do you feel this unit is",
         "choices": [
-         "Less expensive",
-         "Priced about the same",
-         "More expensive",
+         "Beneficial",
+         "Best",
+         "Worse",
          "Not sure"
         ]
        }

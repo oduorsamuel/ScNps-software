@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import {response} from '../../response.model';
+import {Router} from '@angular/router'
 
 
 @Component({
@@ -10,7 +11,7 @@ import {response} from '../../response.model';
 })
 export class UnitsComponent implements OnInit {
   public units;
-  constructor(private adminservice:AdminService) { }
+  constructor(private adminservice:AdminService, private router:Router) { }
 
   ngOnInit() {
     return this.adminservice.getUnits().subscribe((result)=>{
@@ -19,4 +20,9 @@ export class UnitsComponent implements OnInit {
     })
   }
 
+  addUnit(unitCode,unitName){
+    this.adminservice.addUnit(unitCode,unitName).subscribe(()=>{
+       this.router.navigate(['/update']);
+    });
+  }
 }

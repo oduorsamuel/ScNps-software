@@ -23,4 +23,32 @@ export class AdminService {
     return  this.http.get((`${this.url}/academicyears`)).map(result=>result.json());
   }
 
+  addUnit(unitCode, UnitName){
+   const response={
+     unitCode:unitCode,
+     UnitName:UnitName,
+   };
+   return this.http.post(`${this.url}/unit`,response);
+  }
+  addProgram(programName){
+    const response={
+      programName:programName
+    };
+    return this.http.post(`${this.url}/program`,response)
+  }
+
+  addDepartment(departmentName){
+    const response={
+      departmentName:departmentName
+    };
+    return this.http.post(`${this.url}/department`,response)
+  }
+
+  addAcademicYear(academicyear){
+   const response={
+     academicyear:academicyear,
+   };
+   return this.http.post(`${this.url}/academicYear`, response)
+  }
+
 }

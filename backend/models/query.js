@@ -5,17 +5,31 @@ var response = {
     getDepartments(callback) {
         return db.query("Select departmentName from departments", callback);
     },
+    addDepartment: function (response, callback) {
+        return db.query("Insert into department values(departmentId,departmentName)", [response.departmentId, response.depatmentName], callback);
+    },
 
     getPrograms(callback) {
         db.query("select `programName` from programs", callback);
     },
 
+    addProgram: function (response, callback) {
+        return db.query("Insert into programs values(programId,programName)", [response.programId, response.programName], callback);
+    },
+
     getAcademicYear(callback) {
         db.query("select academicYear from academicyears", callback);
+    },
+    addAcademicYear: function (response, callback) {
+        return db.query("Insert into academicyears values(academicYear)", [response.academicYear], callback);
     },
 
     getUnits(callback) {
         db.query("select * from units", callback);
+    },
+
+    addUnit: function (response, callback) {
+        return db.query("Insert into units values(?,?)", [response.unitCode, response.unitName], callback);
     },
 
     getAllresponses(callback) {

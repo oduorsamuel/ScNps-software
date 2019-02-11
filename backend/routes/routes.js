@@ -46,18 +46,46 @@ router.get('/units',(req , res)=>{
    res.json(rows);
    }
   })
-})
-router.post('/', function (req, res,) {
-
-  response.addresponse(req.body, function (err, count) {
-    if (err) {
-      res.json(err);
-    }
-    else {
-      res.json(req.body);//or return count for 1 &amp;amp;amp; 0
-    }
-  });
 });
+router.post('/department',(req, res)=>{
+  response.addDepartment(req.body,(err, count)=>{
+    if(err){
+       res.json(err);
+    }else{
+       res.json(req.body);
+    }
+  })
+});
+
+router.post('/program',(req, res)=>{
+  response.addProgram(req.body,(err,count)=>{
+   if(err){
+    res.json(err);
+   }else{
+    res.json(req.body);
+   }
+  })
+});
+
+router.post('/academicYear',(req, res)=>{
+  response.addAcademicYear(req.body,(err, count)=>{
+    if(err){
+      res.json(err);
+    }else{
+      res.json(req.body);
+    }
+  })
+});
+
+router.post('/unit',(req , res)=>{
+  response.addUnit(req.body,(err , count)=>{
+    if(err){
+      res.json(err)
+    }else{
+      res.json(req.body);
+    }
+  })
+})
 router.delete('/:id', function (req, res,) {
 
   response.deleteresponse(req.params.id, function (err, count) {

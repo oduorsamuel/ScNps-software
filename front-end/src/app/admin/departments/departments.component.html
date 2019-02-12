@@ -1,18 +1,21 @@
 <app-navbar></app-navbar>
 <div class="container">
-        <br>
-        <form class="form-inline">
-          <div class="form-group">
-            <label class="sr-only" for="inputText">Department Id</label>
-            <input type="text" class="form-control" id="inputEmail" placeholder="Enter Dept ID">
-          </div>
-          <div class="form-group">
-            <label class="sr-only" for="inputText">Department Name</label>
-            <input type="text" class="form-control" id="inputPassword" placeholder="Enter Dept. Name">
-          </div>
-          <button type="submit" class="btn btn-success">Add Depatment</button>
-        </form>
-        <br>
-        <br>
+  <br>
+  <form class="form-inline" (ngSubmit)="addDepartment()" #addform="ngForm">
+    <!-- <div class="form-group">
+      <label class="sr-only">Department Id</label>
+      <input type="text" class="form-control" name="departmentid" [(ngModel)]="model.departmentid" required #departmentId="ngModel"
+        placeholder="Enter Department Id" #departmentId>
+    </div> -->
+
+    <div class="form-group">
+      <label class="sr-only">Department Name</label>
+      <input type="text" class="form-control" name="departmentName" [(ngModel)]="model.departmentName" required #departmentName="ngModel"
+        placeholder="Enter Department Name" #departmentName>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!addform.form.valid">Add Department</button>
+  </form>
+  <br>
+  <br>
 </div>
 <hr>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
-import {response} from '../../response.model';
+import { Attributes} from '../response';
 import {Router} from '@angular/router'
 
 
@@ -11,6 +11,7 @@ import {Router} from '@angular/router'
 })
 export class UnitsComponent implements OnInit {
   public units;
+  model = {unitCode:'',unitName:''};
   constructor(private adminservice:AdminService, private router:Router) { }
 
   ngOnInit() {
@@ -20,9 +21,17 @@ export class UnitsComponent implements OnInit {
     })
   }
 
-  addUnit(unitCode,unitName){
-    this.adminservice.addUnit(unitCode,unitName).subscribe(()=>{
+  addUnit(){
+    this.adminservice.addUnit(this.model).subscribe(
+      (data:Attributes)=>{
+       if(data!=null)
+       console.log(data);
        this.router.navigate(['/update']);
-    });
-  }
+       },
+       function (error){console.log("error"+error)},
+       function(){console.log("subscription done")}
+    );
+   
+}
+
 }

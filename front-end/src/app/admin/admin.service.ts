@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import {Attributes,Departments,Programs,AcademicYears} from './response'
+import { Http,Headers,Response,RequestOptions } from '@angular/http';
 
 @Injectable()
 export class AdminService {
@@ -23,32 +24,39 @@ export class AdminService {
     return  this.http.get((`${this.url}/academicyears`)).map(result=>result.json());
   }
 
-  addUnit(unitCode, UnitName){
-   const response={
-     unitCode:unitCode,
-     UnitName:UnitName,
-   };
-   return this.http.post(`${this.url}/unit`,response);
-  }
-  addProgram(programName){
-    const response={
-      programName:programName
-    };
-    return this.http.post(`${this.url}/program`,response)
-  }
+  addAcademicYear(item:AcademicYears){
+    let body = JSON.stringify(item);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.url}/academicYear`,
+                  body, options)
+                 .map((response:Response)=>response.json());
+}
+  addProgram(item:Programs){
+    let body = JSON.stringify(item);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.url}/program`,
+                  body, options)
+                 .map((response:Response)=>response.json());
+}
+  addDepartment(item:Departments){
+    let body = JSON.stringify(item);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.url}/department`,
+                  body, options)
+                 .map((response:Response)=>response.json());
+}
 
-  addDepartment(departmentName){
-    const response={
-      departmentName:departmentName
-    };
-    return this.http.post(`${this.url}/department`,response)
-  }
 
-  addAcademicYear(academicyear){
-   const response={
-     academicyear:academicyear,
-   };
-   return this.http.post(`${this.url}/academicYear`, response)
-  }
+  addUnit(item:Attributes){
+    let body = JSON.stringify(item);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.url}/unit`,
+                  body, options)
+                 .map((response:Response)=>response.json());
+}
 
 }

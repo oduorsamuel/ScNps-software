@@ -6,7 +6,7 @@ var response = {
         return db.query("Select departmentName from departments", callback);
     },
     addDepartment: function (response, callback) {
-        return db.query("Insert into department values(departmentId,departmentName)", [response.departmentId, response.depatmentName], callback);
+        return db.query("Insert into departments value(?,?)", [response.departmentId,response.departmentName], callback);
     },
 
     getPrograms(callback) {
@@ -14,14 +14,14 @@ var response = {
     },
 
     addProgram: function (response, callback) {
-        return db.query("Insert into programs values(programId,programName)", [response.programId, response.programName], callback);
+        return db.query("Insert into programs value(?,?)", [response.programId,response.programName], callback);
     },
 
     getAcademicYear(callback) {
         db.query("select academicYear from academicyears", callback);
     },
     addAcademicYear: function (response, callback) {
-        return db.query("Insert into academicyears values(academicYear)", [response.academicYear], callback);
+        return db.query("Insert into academicyears values(?,?)", [response.id ,response.academicYear], callback);
     },
 
     getUnits(callback) {

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./departments.component.css']
 })
 export class DepartmentsComponent implements OnInit {
-  model={departmentName:'',}
+  model={departmentId:'', departmentName:'',}
   constructor(private adminservice:AdminService, private router:Router) { }
 
   ngOnInit() {

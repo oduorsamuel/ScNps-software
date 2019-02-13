@@ -86,9 +86,9 @@ router.post('/unit',(req , res)=>{
     }
   })
 })
-router.delete('/:id', function (req, res,) {
+router.delete('/unit:unitCode', function (req, res,) {
 
-  response.deleteresponse(req.params.id, function (err, count) {
+  response.deleteUnit(req.params.unitCode, function (err, count) {
 
     if (err) {
       res.json(err);

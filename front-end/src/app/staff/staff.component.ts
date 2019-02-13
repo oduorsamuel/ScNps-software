@@ -65,6 +65,7 @@ export class StaffComponent {
           isRequired: true,
           "name": "academicYear",
           "title": "Select Academic Year",
+          optionsCaption: "Select programName...",
           "choicesByUrl": {
            "url": "http://localhost:3000/Responses/academicYears"
           },

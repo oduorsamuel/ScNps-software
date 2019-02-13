@@ -6,6 +6,7 @@ import { Http,Headers,Response,RequestOptions } from '@angular/http';
 
 @Injectable()
 export class AdminService {
+  private programs:Attributes[]=[];
   url="http://localhost:3000/Responses";
   constructor(private http:Http) { }
 
@@ -57,6 +58,15 @@ export class AdminService {
     return this.http.post(`${this.url}/unit`,
                   body, options)
                  .map((response:Response)=>response.json());
+}
+
+deleteUnit(item:Attributes){
+        
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+ let options = new RequestOptions({ headers: headers });
+ return this.http.delete(`${this.url}/unit`+item,
+                  options)
+                .map((response:Response)=>response.json());   
 }
 
 }

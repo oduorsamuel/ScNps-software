@@ -1,15 +1,15 @@
 export class Attributes {
 
-    constructor(public unitCode:String,public unitName:String,){}
+    constructor(public unitCode:String,public unitName:String, public programId:any){}
 }
 
 export class Departments {
 
-    constructor(public departmentName:String,){}
+    constructor(public departmentId:String, public departmentName:String,){}
 }
 
 export class Programs {
-    constructor(public programName:String,){}
+    constructor(public departmentId:any,public programId:any,public programName:String,){}
 }
 
 export class AcademicYears {

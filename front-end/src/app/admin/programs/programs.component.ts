@@ -9,12 +9,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./programs.component.css']
 })
 export class ProgramsComponent implements OnInit {
-
+  public departments;
+  model = {programId:'', programName:'',departmentId:''}
   constructor(private adminservice:AdminService, private router:Router) { }
-  model = { programName:''}
   ngOnInit() {
-    return this.adminservice.getPrograms().subscribe((result)=>{
+
+    this.getDepartments();
+    this.getPrograms();
+  }
+  getPrograms(){
+      return this.adminservice.getPrograms().subscribe((result)=>{
       console.log(result);
+    })
+  }
+
+  getDepartments(){
+    return this.adminservice.getDepartment().subscribe((departments)=>{
+       console.log(departments)
+       this.departments=departments
     })
   }
 

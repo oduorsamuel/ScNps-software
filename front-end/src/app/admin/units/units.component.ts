@@ -11,7 +11,7 @@ import {Router} from '@angular/router'
 })
 export class UnitsComponent implements OnInit {
   public units;
-  private programs:Attributes[]=[];
+  public programs;
   model = {unitCode:'',unitName:'',programId:''};
   constructor(private adminservice:AdminService, private router:Router) { }
 

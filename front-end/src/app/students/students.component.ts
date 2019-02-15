@@ -29,16 +29,6 @@ export class StudentsComponent{
          10,
         ]
        },
-       {
-        "type": "dropdown",
-        isRequired: true,
-        "name": "countries",
-        "title": "Question not Availlable",
-        "choicesByUrl": {
-         "url": "https://restcountries.eu/rest/v1/all"
-        },
-        "renderAs": "select2"
-       }
       ]
      },
      {

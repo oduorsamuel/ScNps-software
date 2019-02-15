@@ -1,0 +1,54 @@
+<app-surveynav></app-surveynav>
+<div class="container">
+ 
+  <form (ngSubmit)="partTwo()"  #addform="ngForm">
+  <div class="form-group">
+   
+      <label for="id">Semester <b>*</b></label>
+       
+      <select
+       
+      name="Semester"
+       
+      class="form-control"
+       >
+      <option>1</option>
+      <option>2</option>
+      </select>
+      </div>
+        &nbsp;
+        <div class="form-group">
+         
+        <label for="name">Select Unit <b>*</b></label>
+         
+        <select 
+         
+        name="unit"
+         
+        class="form-control" 
+        >
+        <option *ngFor="let unit of units" [value]="unit.unitId">{{unit.unitName}}</option>
+        </select>
+         
+        </div>
+        
+  <!-- <div class="form-group">
+   
+  <label for="power">Year Of Study</label>
+   
+  <select class="form-control" 
+   
+  [(ngModel)]="model.year" name="year"
+   
+  required>
+  <option *ngFor="let s of status" [value]="s">{{s}}</option>
+  </select>
+   
+  </div> -->
+  <button type="previous" class="btn" routerLink='/staff' >Previous</button>
+  <button type="submit" class="btn pull-right"  [disabled]="!addform.form.valid" >Next</button>
+   
+  </form>
+   <br><br><br>
+  </div>
+  

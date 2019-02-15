@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 import * as Survey from 'survey-angular';
 import * as widgets from 'surveyjs-widgets';
+import {Router} from '@angular/router';
 
 import 'inputmask/dist/inputmask/phone-codes/phone.js';
 
@@ -24,6 +25,9 @@ widgets.prettycheckbox(Survey);
   template: `<div class='survey-container contentcontainer codecontainer'><div id='surveyElement'></div></div>`
 })
 export class StudentresponseComponent implements OnInit {
+  constructor(private router:Router){
+
+  }
   @Output() submitSurvey = new EventEmitter<any>();
 
   @Input()
@@ -39,7 +43,8 @@ export class StudentresponseComponent implements OnInit {
     const surveyModel = new Survey.Model(this.json);
     surveyModel.onComplete
       .add(result =>
-        this.submitSurvey.emit(result.data)
+        // this.submitSurvey.emit(result.data)
+        this.router.navigate(['/thankYou'])
       );
     Survey.SurveyNG.render('surveyElement', { model: surveyModel });
     

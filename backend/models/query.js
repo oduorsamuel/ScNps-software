@@ -31,12 +31,6 @@ var response = {
     addUnit: function (response, callback) {
         return db.query("Insert into units values(?,?,?)", [response.unitCode, response.unitName, response.programId], callback);
     },
-
-    getAllresponses(callback) {
-
-        return db.query("Select * from response", callback);
-
-    },
     getresponseById: function (id, callback) {
 
         return db.query("select * from sam where Id=?", [id], callback);
@@ -47,9 +41,6 @@ var response = {
     deleteUnit: function (unitCode, callback) {
         return db.query("delete from units where unitCode=?", [unitCode], callback);
     },
-    updateresponse: function (id, response, callback) {
-        return db.query("update sam set name=?,comment=?", [response.name, response.comment], callback);
-    }
 
 };
 module.exports = response;

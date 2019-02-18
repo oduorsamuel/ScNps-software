@@ -99,6 +99,27 @@ router.delete('/unit:unitCode', function (req, res,) {
 
   });
 });
+router.delete( '/department:departmentId',(req, res)=>{
+ response.deleteDepartment(req.params.departmentId,(err,count)=>{
+ if(err){
+  res.json(err)
+ }
+ else{
+   res.json(count);
+ }
+ });
+});
+
+router.delete('/program:programId',(req, res)=>{
+ response.deleteProgram(req.params.programId,(err, count)=>{
+   if(err){
+    res.json(err)
+   }
+   else{
+    res.json(count)
+   }
+ })
+})
 router.put('/:id', function (req, res,) {
 
   response.updateresponse(req.params.id, req.body, function (err, rows) {

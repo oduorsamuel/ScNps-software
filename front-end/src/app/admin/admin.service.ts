@@ -59,14 +59,15 @@ export class AdminService {
                   body, options)
                  .map((response:Response)=>response.json());
 }
+deleteUnit(unitCode) {
+  return this.http.delete(`${this.url}/unit${unitCode}`)
 
-deleteUnit(item:Attributes){
-        
-  let headers = new Headers({ 'Content-Type': 'application/json' });
- let options = new RequestOptions({ headers: headers });
- return this.http.delete(`${this.url}/unit`+item,
-                  options)
-                .map((response:Response)=>response.json());   
+}
+deleteDepartment(departmentId){
+  return this.http.delete(`${this.url}/department${departmentId}`)
+}
+deleteProgram(programId){
+ return this.http.delete(`${this.url}/program${programId}`)
 }
 
 }

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProgramsComponent implements OnInit {
   public departments;
+  public programs;
   model = {programId:'', programName:'',departmentId:''}
   constructor(private adminservice:AdminService, private router:Router) { }
   ngOnInit() {
@@ -20,6 +21,7 @@ export class ProgramsComponent implements OnInit {
   getPrograms(){
       return this.adminservice.getPrograms().subscribe((result)=>{
       console.log(result);
+      this.programs=result;
     })
   }
 

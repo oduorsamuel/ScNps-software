@@ -44,23 +44,9 @@ export class UnitsComponent implements OnInit {
     );
    
 }
-deleteUnit(item:Attributes){
-
-  this.adminservice.deleteUnit(item).subscribe(
-
-    (data:any)=>{
-      if(data.affectedRows==1)
-      {
-        this.programs.splice(this.programs.indexOf(item),1);
-      }
-      else
-      {
-        alert("Error Deleting");
-      }
-    }
-
-  );
- 
-}
-
+deleteUnit(unitCode){
+  this.adminservice.deleteUnit(unitCode).subscribe(()=>{
+    this.getUnits();
+  })
+ }
 }

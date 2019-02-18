@@ -41,6 +41,11 @@ var response = {
     deleteUnit: function (unitCode, callback) {
         return db.query("delete from units where unitCode=?", [unitCode], callback);
     },
-
+    deleteDepartment:function(departmentId, callback){
+        return db.query("delete from departments where departmentId=?" ,[departmentId],callback);
+    },
+    deleteProgram:function(programId,callback){
+     return db.query("delete from programs where programId=?", [programId], callback)
+    }
 };
 module.exports = response;
